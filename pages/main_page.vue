@@ -1,0 +1,226 @@
+<template>
+  <v-container>
+    <v-row justify="center">
+      <!--ส่วนของ header!-->
+      <v-app-bar
+        class="head"
+        fixed
+        color="#141E61"
+        height="90%"
+      >
+        <v-toolbar-title class="text-center">
+          <h5>ระบบเช็คกิจกรรมเข้าแถวหน้าเสาธง</h5>
+        </v-toolbar-title>
+      </v-app-bar>
+    </v-row>
+
+    <!--ส่วนของ body!-->
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="8" md="6" />
+      <div class="bg">
+        <br>
+        <br>
+        <br>
+        <div>
+          <v-icon
+            large
+            color="#21325E"
+          >
+            home
+          </v-icon>
+          <h2>หน้าหลัก</h2>
+        </div>
+        <v-row>
+          <template #activator="{ on, attrs }">
+            <div class="my-2">
+              <v-btn
+                color="#C4C4C4"
+                dark
+                large
+                v-bind="attrs"
+                v-on="on"
+              >
+                <v-icon
+                  dark
+                  left
+                >
+                  mdi-account-check
+                </v-icon>
+                เช็คชื่อเข้าแถวหน้าเสาธง
+              </v-btn>
+            </div>
+          </template>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn
+              color="primary"
+              text
+              @click="dialog = false"
+            />
+          </v-card-actions>
+          <div class="my-2">
+            <v-btn
+              color="#C4C4C4"
+              dark
+              large
+              href="editcheckname_1"
+            >
+              <v-icon
+                dark
+                left
+              >
+                fas fa-edit
+              </v-icon>
+              แก้ไขเช็คชื่อเข้าแถวหน้าเสาธง
+            </v-btn>
+          </div>
+          <div class="my-2">
+            <v-btn
+              color="#C4C4C4"
+              dark
+              large
+              href="show"
+            >
+              <v-icon
+                dark
+                left
+              >
+                mdi-content-paste
+              </v-icon>
+              สรุปผลรายงานการเข้าแถว
+            </v-btn>
+          </div>
+          <div class="my-2">
+            <v-btn
+              color="#C4C4C4"
+              dark
+              large
+              href="show_2"
+            >
+              <v-icon
+                dark
+                left
+              >
+                mdi-chart-bar
+              </v-icon>
+              รายงานการมาเรียน
+              <v-menu
+                left
+                bottom
+              >
+                <template #activator="{ on, attrs }">
+                  <v-btn
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    <v-icon>mdi-dots-vertical</v-icon>
+                  </v-btn>
+                </template>
+
+                <v-list>
+                  <v-list-item
+                    v-for="n in 5"
+                    :key="n"
+                    @click="() => {}"
+                  >
+                    <v-list-item-title>E {{ n }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-btn>
+          </div>
+
+          <div class="my-2">
+            <v-btn
+              color="#C4C4C4"
+              dark
+              large
+              href="information"
+            >
+              <v-icon
+                dark
+                left
+              >
+                mdi-clipboard-text
+              </v-icon>
+              บันทึกพฤติกรรม/ดูข้อมูลนักเรียน
+              <v-menu
+                left
+                bottom
+              >
+                <template #activator="{ on, attrs }">
+                  <v-btn
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    <v-icon>mdi-dots-vertical</v-icon>
+                  </v-btn>
+                </template>
+
+                <v-list>
+                  <v-list-item
+                    v-for="n in 5"
+                    :key="n"
+                    @click="() => {}"
+                  >
+                    <v-list-item-title>E {{ n }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-btn>
+          </div>
+
+          <!--ส่วนของ footer!-->
+          <div class="foot">
+            <v-bottom-navigation
+              :value="value"
+              color="#F5F5F5"
+              background-color="#2D4263"
+              grow
+              light
+              absolute
+            >
+              <v-btn>
+                <span>Nearby</span>
+
+                <v-icon>mdi-map-marker</v-icon>
+              </v-btn>
+            </v-bottom-navigation>
+          </div>
+        </v-row>
+      </div>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      dialog: false
+    }
+  }
+}
+</script>
+
+// แบบเขียนcss
+<style>
+.bg {
+   height: 87ex;
+}
+h2 {
+  margin-bottom: 50px;
+  color:#27272c;
+}
+h5 {
+  margin-left: 2ex;
+}
+.my-2 {
+  margin-left: 3ex;
+}
+.v-bottom-navigation{
+    border-radius: 50px 50px 0px 0px;
+}
+</style>
